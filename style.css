@@ -1,0 +1,209 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #F9F3FC;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  font-family: fantasy;
+  color: white;
+  background-color: #B382AA;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  font-family: fantasy;
+  color: white;
+  text-align: center;
+  background-color: #B382AA;
+}
+
+.fot-text {
+  margin-top: 25px;
+}
+
+.main__body {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 100px;
+  left: calc(50% - 250px);
+}
+
+.header__menu {
+  border: none;
+  background-color: #D9B7D3;
+  float: left;
+  height: 100%;
+  width: 40px;
+}
+
+.header__title {
+  float: left;
+  margin-left: calc(50% - 40px);
+  transform: translate(-50%, 0);
+  margin-top: 6px;
+  transition: transform 0.3s;
+}
+
+.header__title:hover {
+  transform: scale(1.5);
+}
+
+.main__button {
+  margin-top: 35%;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  font-family: serif;
+  text-transform: uppercase;
+  transition: transform 0.1s ease-out;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 35px;
+  outline: none;
+  background-color: #A499C5;
+  box-shadow: -18px 13px 22px 0px rgba(89, 54, 151, 0.75);
+  -webkit-box-shadow: -18px 13px 22px 0px rgba(89, 54, 151, 0.75);
+  -moz-box-shadow: -18px 13px 22px 0px rgba(89, 54, 151, 0.75);
+}
+
+.main__button:hover {
+  transform: scale(2.0) rotate(360deg);
+}
+
+.question-Answer__Grp {
+  margin-top: 7px;
+}
+
+.question__List {
+  list-style: none;
+  width: 700px;
+}
+
+.question__Item {
+  font-family: serif;
+  font-size: 19px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.question__Text {
+  border-radius: 7px;
+  padding: 10px;
+  background: #00000010;
+  color: #8829E8;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 8px;
+}
+
+.answer__Radio {
+  display: block;
+  margin: 7px;
+  margin-left: 20px;
+}
+
+.answer__text {
+  margin: 1rem;
+}
+
+/* The Modal (background) */
+.my__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal__content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 460px;
+  height: 210px;
+}
+
+.modal__text {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.text-extra {
+  color: blue;
+  font-size: 22px;
+  margin-top: 30px;
+  text-align: center;
+}
+.wrong-text{
+  margin-top: 20px;
+  color: #FF6D6D;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* The Close Button */
+.modal__close {
+  color: red;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.re__start,
+.back {
+  width: 70px;
+  height: 25px;
+  color: #8829E8;
+  border-radius: 5px;
+  background: #00000010;
+  outline: none;
+  margin-top: 60px;
+  margin-left: 30px;
+}
+
+.submit__result {
+  margin-bottom: 65px;
+  font-size: 40px;
+  background: #00000010;
+  color: green;
+  float: right;
+  border-radius: 50%;
+}
