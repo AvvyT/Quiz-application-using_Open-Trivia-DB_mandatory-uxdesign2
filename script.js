@@ -148,39 +148,50 @@ function submit() {
 //---------------counterCorrect--------------
 function correctQuiz(answers, correctAnswers) {
   console.log(correctAnswers);
-  let correctCount = 0;
+  let grattis = document.querySelector('.modal__text');
+  grattis.textContent = ''; // så sparas inte sista text när man re-start
   let p = document.querySelector('.text-extra');
   let wrongText = document.querySelector('.wrong-text');
-  let grattis = document.querySelector('.modal__text');
-  // div med varje quetion
   const answerGroups = document.querySelectorAll('.question-Answer__Grp');
-  wrongText.style.display = 'none';
+  // div med varje quetion
+  let correctCount = 0;
 
-  // kolla om radio är checked!
+  // kolla om radio är checked o har rätta svar------------
   for (let i = 0; i < answerGroups.length; i++) {
 
     // The Array.from() method creates a new, shallow-copied Array instance
     const answerIsCorrect = Array.from(answerGroups[i].querySelectorAll('input'))
       .some(x => x.checked && x.dataset.correct === "true");
     // The some() method tests whether at least one element in the array passes the test
+
     // om inputen inehåller rätta svar då ++
     if (answerIsCorrect) {
       correctCount += 1;
+      wrongText.style.display = 'none';
+      grattis.textContent = 'Congratulations!!..';
+      grattis.style.display = 'block';
       p.style.display = 'block';
+
     }
+
     // om alla radios är checkad
     const answerIsChecked = Array.from(answerGroups[i].querySelectorAll('input'))
       .some(x => x.checked);
-    // om de är inte
-    if (!answerIsChecked) {
+
+    if (!answerIsChecked) { // om de är inte
+      grattis.style.display = 'none';
       p.style.display = 'none';
+
       wrongText.style.display = 'block';
-      wrongText.textContent = "You must answer all questions!!!";
-      return; // gå inte till if- som rättar/bara avbryta
+      return; // kolla att inte skriva redan rätta tills att alla är checkad
     }
+    //------------sluta----------------------
+
   }
   if (correctCount === 0) {
+    wrongText.style.display = 'none';
     grattis.textContent = 'Unfortunately, your answers are wrong!!!';
+    grattis.style.display = 'block';
   }
   p.textContent = 'You answered ' + correctCount + '/10 questions correctly!!!';
 }
