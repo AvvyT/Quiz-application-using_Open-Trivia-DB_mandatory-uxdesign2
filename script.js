@@ -13,6 +13,7 @@ buttonBack.addEventListener('click', init);
 
 const questionsContainer = document.createElement('div');
 questionsContainer.classList.add('question-Answer__conteiner');
+// questions sidan div
 main.appendChild(questionsContainer);
 let questions = {};
 let correctAnswers = [];
@@ -62,6 +63,7 @@ function fetchQuestions() {
 
   }).then(function(result) {
     questions = JSON.parse(result).results;
+    // spara allt data i obj-questions
 
     renderQuestions();
   });
@@ -69,7 +71,7 @@ function fetchQuestions() {
 
 //----------------render QUESTIONS--------
 function renderQuestions() {
-  qNumber = 0;
+  qNumber = 0; // återställer från 0
   let ul = document.createElement('ul');
   ul.classList.add('question__List');
   questionsContainer.appendChild(ul);
@@ -92,7 +94,8 @@ function renderQuestions() {
     // spara rätt svar för varje fråga
     correctAnswers.push(correctAnswer);
 
-    li.appendChild(renderRadio(answers, correctAnswer)); // append diven/för varje fråga
+    li.appendChild(renderRadio(answers, correctAnswer));
+    // append diven/för varje fråga med sina svar
   }
   questionsContainer.appendChild(createSubmit());
 }
@@ -153,7 +156,7 @@ function correctQuiz(answers, correctAnswers) {
   let p = document.querySelector('.text-extra');
   let wrongText = document.querySelector('.wrong-text');
   const answerGroups = document.querySelectorAll('.question-Answer__Grp');
-  // div med varje quetion
+  // div med  alla svar för varje question!
   let correctCount = 0;
 
   // kolla om radio är checked o har rätta svar------------
@@ -171,7 +174,6 @@ function correctQuiz(answers, correctAnswers) {
       grattis.textContent = 'Congratulations!!..';
       grattis.style.display = 'block';
       p.style.display = 'block';
-
     }
 
     // om alla radios är checkad
@@ -187,7 +189,7 @@ function correctQuiz(answers, correctAnswers) {
     }
     //------------sluta----------------------
 
-  }
+  } // inga rätt svar
   if (correctCount === 0) {
     wrongText.style.display = 'none';
     grattis.textContent = 'Unfortunately, your answers are wrong!!!';
@@ -198,6 +200,10 @@ function correctQuiz(answers, correctAnswers) {
 
 //---------------- chenge the simboler-text--------
 function decode(input) {
+  // DOMParser kan grammatiskt analysera, parsa och konvertera den till ett DOM- dokument
+  // skapa ett objekt
+  // analysera från en textsträng med metoden parseFromString:
   let doc = new DOMParser().parseFromString(input, 'text/html');
+  // returns the Element that is the root element of the document/input
   return doc.documentElement.textContent;
 }
